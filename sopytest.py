@@ -9,6 +9,7 @@ namespace 	= "http://webservices.daehosting.com/temperature"
 url 		= "http://webservices.daehosting.com/services/TemperatureConversions.wso"
 
 def cToF_WSDL(x):
+	"""Use WSDL file to access the web service"""
 	proxy     = WSDL.Proxy(WSDLFile)
 	#proxy.soapproxy.config.debug = 1
 
@@ -22,6 +23,7 @@ def cToF_WSDL(x):
 #-------------------------------------------------------------------
 
 def cToF_Proxy(x):
+	"""Use SOAP proxy to access the web service"""
 	server = SOAPProxy(url, namespace)
 	#server.config.debug = 1
 	return server.CelciusToFahrenheit(nCelcius=x)
